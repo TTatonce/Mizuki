@@ -6,7 +6,7 @@ published: 2025-10-27
 
 description: "个人网站的使用方式，安装部署等等。First Blog"
 
-image: "src/content/posts/images/006WHNqygy1hnmrgyltcjj30u00u077u.jpg"
+image: "../posts/images/006WHNqygy1hnmrgyltcjj30u00u077u.jpg"
 
 tags: ["Mizuki", "Blogging", "Customization"]
 
