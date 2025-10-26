@@ -26,6 +26,10 @@ draft: false
 
 ![image-20251027001909056](images/image-20251027001909056.png)
 
+
+
+
+
 <img src="images/image-20251027001719133.png" alt="image-20251027001719133" style="zoom: 67%;" />
 
 然后是主题的一些其他配置，在Mizuki 官网都有，后面慢慢看吧：
@@ -72,11 +76,19 @@ git push -u origin master
 
 <img src="images/image-20251027004830502.png" alt="image-20251027004830502" style="zoom: 33%;" />
 
+
+
+
+
 ![image-20251027004939271](images/image-20251027004939271.png)
 
 这两个网址是在cloudflare添加域名的时候获取的，一定要添加到spaceship里面去，然后cloudflare审核激活，大概10几分钟就能成功激活。激活成功后，就有域名了。然后就得把Vercel的域名换成自定义的了，网址：https://vercel.com/。添加新域名，弄个重定向，所以有两个域名，
 
 <img src="images/image-20251027005423980.png" alt="image-20251027005423980" style="zoom: 50%;" />
+
+
+
+
 
 ![image-20251027005543574](images/image-20251027005543574.png)
 
