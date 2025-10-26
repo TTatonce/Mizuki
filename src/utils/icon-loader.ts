@@ -24,9 +24,22 @@ class IconLoader {
 	}
 
 	/**
+	 * 检查是否在浏览器环境中
+	 */
+	private isBrowser(): boolean {
+		return typeof window !== 'undefined' && typeof document !== 'undefined';
+	}
+
+	/**
 	 * 加载Iconify图标库
 	 */
 	async loadIconify(options: IconifyLoadOptions = {}): Promise<void> {
+		// SSR 环境检查 - 在服务端直接返回
+		if (!this.isBrowser()) {
+			console.log('Iconify: Skipping in SSR environment');
+			return Promise.resolve();
+		}
+
 		const { timeout = 10000, retryCount = 3, retryDelay = 1000 } = options;
 
 		// 如果已经加载完成，直接返回
@@ -86,6 +99,12 @@ class IconLoader {
 	 */
 	private loadScript(timeout: number): Promise<void> {
 		return new Promise((resolve, reject) => {
+			// 再次检查浏览器环境
+			if (!this.isBrowser()) {
+				reject(new Error("Not in browser environment"));
+				return;
+			}
+
 			// 检查是否已经存在脚本
 			const existingScript = document.querySelector(
 				'script[src*="iconify-icon"]',
@@ -130,6 +149,12 @@ class IconLoader {
 	 */
 	private waitForIconifyReady(maxWait = 5000): Promise<void> {
 		return new Promise((resolve, reject) => {
+			// 检查浏览器环境
+			if (!this.isBrowser()) {
+				reject(new Error("Not in browser environment"));
+				return;
+			}
+
 			const startTime = Date.now();
 
 			const checkReady = () => {
@@ -155,7 +180,7 @@ class IconLoader {
 	 */
 	private isIconifyReady(): boolean {
 		return (
-			typeof window !== "undefined" &&
+			this.isBrowser() &&
 			"customElements" in window &&
 			customElements.get("iconify-icon") !== undefined
 		);
@@ -166,7 +191,8 @@ class IconLoader {
 	 */
 	onLoad(callback: () => void): void {
 		if (this.isLoaded) {
-			callback();
+			// 在下一个事件循环中执行，避免同步调用问题
+			setTimeout(callback, 0);
 		} else {
 			this.observers.add(callback);
 		}
@@ -185,7 +211,8 @@ class IconLoader {
 	private notifyObservers(): void {
 		this.observers.forEach((callback) => {
 			try {
-				callback();
+				// 在下一个事件循环中执行回调
+				setTimeout(callback, 0);
 			} catch (error) {
 				console.error("Error in icon load observer:", error);
 			}
@@ -207,6 +234,12 @@ class IconLoader {
 	 * 预加载指定图标
 	 */
 	async preloadIcons(icons: string[]): Promise<void> {
+		// SSR 环境检查
+		if (!this.isBrowser()) {
+			console.log('Iconify: Skipping preload in SSR environment');
+			return Promise.resolve();
+		}
+
 		if (!this.isLoaded) {
 			await this.loadIconify();
 		}
@@ -251,6 +284,30 @@ class IconLoader {
 			}, 5000);
 		});
 	}
+
+	/**
+	 * 安全地使用图标，自动处理加载状态
+	 */
+	async useIcons(iconNames: string[], callback: () => void): Promise<void> {
+		if (!this.isBrowser()) {
+			// SSR 环境直接执行回调
+			callback();
+			return;
+		}
+
+		if (this.isLoaded) {
+			callback();
+		} else {
+			this.onLoad(async () => {
+				await this.preloadIcons(iconNames);
+				callback();
+			});
+			// 确保开始加载
+			if (!this.isLoading) {
+				this.loadIconify();
+			}
+		}
+	}
 }
 
 // 导出单例实例
@@ -262,3 +319,12 @@ export const loadIconify = (options?: IconifyLoadOptions) =>
 export const preloadIcons = (icons: string[]) => iconLoader.preloadIcons(icons);
 export const onIconsReady = (callback: () => void) =>
 	iconLoader.onLoad(callback);
+export const useIcons = (iconNames: string[], callback: () => void) =>
+	iconLoader.useIcons(iconNames, callback);
+
+// 导出 SSR 安全的工具函数
+export const isBrowser = () => 
+	typeof window !== 'undefined' && typeof document !== 'undefined';
+
+// 默认导出
+export default iconLoader;
