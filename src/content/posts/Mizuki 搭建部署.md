@@ -74,16 +74,14 @@ git push -u origin master
 
 买了之后还得激活才行， 要用到cloudflare，网址：https://dash.cloudflare.com/。添加域名，把两个连接复制到spaceship里面去。
 
-<img src="images/image-20251027004830502.png" alt="image-20251027004830502" style="zoom: 33%;" />
+![image-20251027004830502](images/image-20251027004830502.png)
 
-两张照片之前需要有文字，不然显示不出来。
 ![image-20251027004939271](images/image-20251027004939271.png)
 
 这两个网址是在cloudflare添加域名的时候获取的，一定要添加到spaceship里面去，然后cloudflare审核激活，大概10几分钟就能成功激活。激活成功后，就有域名了。然后就得把Vercel的域名换成自定义的了，网址：https://vercel.com/。添加新域名，弄个重定向，所以有两个域名，
+![image-20251027005423980](images/image-20251027005423980.png)
 
-<img src="images/image-20251027005423980.png" alt="image-20251027005423980" style="zoom: 50%;" />
 
-两张照片之前需要有文字，不然显示不出来。
 
 ![image-20251027005543574](images/image-20251027005543574.png)
 
