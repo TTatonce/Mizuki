@@ -28,9 +28,8 @@ draft: false
 
 
 
+![image-20251027001719133](images/image-20251027001719133.png)
 
-
-<img src="images/image-20251027001719133.png" alt="image-20251027001719133" style="zoom: 67%;" />
 
 然后是主题的一些其他配置，在Mizuki 官网都有，后面慢慢看吧：
 
