@@ -1,19 +1,11 @@
 ---
-
-title: AIGC全领域修炼手册
-
+title: APyTorch+CUDA安装（5060显卡）
 published: 2025-10-29
-
-description: "成为AIGC大师，这是第一步"
-
-image: "../images/image-20251029155552724.png"
-
+description: "AI程序必备环境"
+image: "../images/image-20251029155540588.png"
 tags: ["AI", "Blogging","CUDA","PyTorch"]
-
 category: AI
-
 draft: false
-
 ---
 # PyTorch+CUDA安装（5060显卡）
 
@@ -27,13 +19,13 @@ draft: false
 
 windows在命令窗输入命令nvidia-smi查看，分别是自己的版本是581.08，支持的CUDA最高版本是13.0。
 
-<img src="../images/image-20251029154304854.png" alt="image-20251029154304854" style="zoom: 50%;" />
+![image-20251029155540588](../images/image-20251029155540588.png)
 
 进入这个网址：https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-driver
 
 然后查看，可以看见，必须下载13及以上的版本，因为电脑的版本是581.08：
 
-<img src="../images/image-20251029154115483.png" alt="image-20251029154115483" style="zoom: 33%;" />
+![image-20251029155540588](../images/image-20251029155540588.png)
 
 下载地址是：https://developer.nvidia.com/cuda-toolkit-archive
 
@@ -43,13 +35,13 @@ windows在命令窗输入命令nvidia-smi查看，分别是自己的版本是581
 
 找到torch和torchvision：
 
-<img src="../images/image-20251029154825419.png" alt="image-20251029154825419" style="zoom: 50%;" />
+![image-20251029155540588](../images/image-20251029155540588.png)
 
 ctrl+F进行搜索关键字cu130-cp311-cp311-win，即可找到相应版本，然后下载即可。
 
-<img src="../images/image-20251029155010868.png" alt="image-20251029155010868" style="zoom:50%;" />
+![image-20251029155540588](../images/image-20251029155540588.png)
 
-<img src="../images/image-20251029155039160.png" alt="image-20251029155039160" style="zoom:50%;" />
+![image-20251029155540588](../images/image-20251029155540588.png)
 
 ## 正式安装
 
@@ -82,42 +74,3 @@ D:\develop\py3.11\python.exe -m venv venv
 venv\Scripts\activate
 # 验证Python版本
 python --version
-
-```
-
-## 最后
-
-安装完成后就可以开始跑AI程序了，后面创建新项目，就导包就行了。
-
-![image-20251029155540588](../images/image-20251029155540588.png)
-
-![image-20251029155552724](../images/image-20251029155552724.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
