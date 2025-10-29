@@ -8,7 +8,7 @@ description: "成为AIGC大师，这是第一步"
 
 image: "../images/bd92077065e3272b310cb8a11227b00d.jpg"
 
-tags: ["AIGC", "Blogging"]
+tags: ["AIGC"]
 
 category: AIGC
 
