@@ -1,11 +1,19 @@
 ---
+
 title: APyTorch+CUDA安装（5060显卡）
+
 published: 2025-10-29
+
 description: "AI程序必备环境"
-image: "../images/image-20251029155540588.png"
+
+image: "../images/image-20251029155552724.png"
+
 tags: ["AI", "Blogging","CUDA","PyTorch"]
+
 category: AI
+
 draft: false
+
 ---
 # PyTorch+CUDA安装（5060显卡）
 
@@ -19,14 +27,13 @@ draft: false
 
 windows在命令窗输入命令nvidia-smi查看，分别是自己的版本是581.08，支持的CUDA最高版本是13.0。
 
-![image-20251029155540588](../images/image-20251029155540588.png)
-
+![image-20251029154304854](../images/image-20251029154304854.png)
 进入这个网址：https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-driver
 
 然后查看，可以看见，必须下载13及以上的版本，因为电脑的版本是581.08：
 
-![image-20251029155540588](../images/image-20251029155540588.png)
 
+![image-20251029154115483](../images/image-20251029154115483.png)
 下载地址是：https://developer.nvidia.com/cuda-toolkit-archive
 
 然后安装torch，要根据python版本和cuda的版本来下，比如cuda13，python3.11，那么下的版本就是cu130，cp311。
@@ -35,14 +42,13 @@ windows在命令窗输入命令nvidia-smi查看，分别是自己的版本是581
 
 找到torch和torchvision：
 
-![image-20251029155540588](../images/image-20251029155540588.png)
-
+![image-20251029154825419](../images/image-20251029154825419.png)
 ctrl+F进行搜索关键字cu130-cp311-cp311-win，即可找到相应版本，然后下载即可。
 
-![image-20251029155540588](../images/image-20251029155540588.png)
 
-![image-20251029155540588](../images/image-20251029155540588.png)
+![image-20251029155010868](../images/image-20251029155010868.png)
 
+![image-20251029155039160](../images/image-20251029155039160.png)
 ## 正式安装
 
 在pycharm里面创建一个项目，然后创建python3.11的虚拟环境，激活虚拟环境。
@@ -74,3 +80,42 @@ D:\develop\py3.11\python.exe -m venv venv
 venv\Scripts\activate
 # 验证Python版本
 python --version
+
+```
+
+## 最后
+
+安装完成后就可以开始跑AI程序了，后面创建新项目，就导包就行了。
+
+![image-20251029155540588](../images/image-20251029155540588.png)
+
+![image-20251029155552724](../images/image-20251029155552724.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
