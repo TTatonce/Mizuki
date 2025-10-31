@@ -8,7 +8,7 @@ description: "AI程序必备环境"
 
 image: "../images/image-20251029155552724.png"
 
-tags: ["AI", "Blogging","CUDA","PyTorch"]
+tags: ["AI","CUDA","PyTorch"]
 
 category: AI
 
