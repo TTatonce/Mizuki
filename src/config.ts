@@ -20,8 +20,8 @@ import { LinkPreset } from "./types/config";
 const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
 
 export const siteConfig: SiteConfig = {
-	title: "時空の涙",
-	subtitle: "zhy|澄空の羽",
+	title: "✦────　喵帕斯的小屋　────✦",
+	subtitle: "zhy",
 
 	lang: SITE_LANG,
 
