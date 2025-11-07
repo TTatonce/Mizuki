@@ -20,7 +20,7 @@ import { LinkPreset } from "./types/config";
 const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
 
 export const siteConfig: SiteConfig = {
-	title: "✦────　喵帕斯的小屋　────✦",
+	title: "✦喵帕斯的小屋✦",
 	subtitle: "zhy",
 
 	lang: SITE_LANG,
@@ -281,7 +281,7 @@ export const navBarConfig: NavBarConfig = {
 
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/avatar1.jpg", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
-	name: "時空の涙",
+	name: "喵帕斯喵",
 	bio: "生存还是毁灭？",
 	typewriter: {
 		enable: true, // 启用个人简介打字机效果
